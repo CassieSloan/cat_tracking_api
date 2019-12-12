@@ -20,11 +20,13 @@ const create = async (req, res) => {
 const show = async (req, res) => {
     console.log("show is working")
     let { id } = req.params
-    res.render("cats/show")
+    let cat = await CatModel.findById(id)
+    res.render("cats/show", {cat})
 }
 
 module.exports = {
     index,
     make,
-    create
+    create,
+    show
 };
