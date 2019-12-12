@@ -1,1 +1,16 @@
 <h1>Index page for cat tracker API!</h1>
+
+<a href="/cats/new">Create New Cat</a>
+{{#each cats}}
+<div>
+    <p>Face: {{ this.face }}</p>
+    <p>Breed: {{ this.breed }}</p>
+    <p>Sex: {{ this.sex }}</p>
+    <p>Name: {{ this.name }}</p>
+</div>
+<a href="/cats/{{this._id}}">View Cat</a>
+
+<a href="/cats/{{this._id}}?_method=DELETE">Delete Cat</a>
+<a href="/cats/{{this._id}}/edit">Edit Cat</a>
+<hr />
+{{/each}}

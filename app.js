@@ -1,9 +1,11 @@
+const methodOverride = require("method-override");
 const express = require('express') 
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const routes = require("./routes")
 const app = express() 
 const port = 3000 
+
 
 //database
 mongoose.connect("mongodb://localhost/cat_tracker_api_practice", {
@@ -21,6 +23,8 @@ app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+//method overide
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }))
 //routes
 app.use(routes)
 
