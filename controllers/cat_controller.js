@@ -39,11 +39,19 @@ const update = async (req, res) => {
     res.redirect(`/cats/${id}`)
 }
 
+const destroy = async (req, res) => {
+    console.log("delete is working")
+    let {id} = req.params
+    await CatModel.findByIdAndRemove(id)
+    res.redirect("/cats")
+}
+
 module.exports = {
     index,
     make,
     create,
     show,
     edit,
-    update
+    update,
+    destroy
 };

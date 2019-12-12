@@ -7,7 +7,8 @@ router.get("/new", CatController.make);
 router.post("/", CatController.create);
 router.get("/:id", CatController.show);
 router.get("/:id/edit", CatController.edit);
-router.put('/:id', CatController.update)
-router.patch('/:id', CatController.update)
+router.put('/:id', CatController.update);
+router.patch('/:id', CatController.update);
+router.delete("/:id", CatController.destroy);
 
 module.exports = router;
